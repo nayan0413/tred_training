@@ -11,7 +11,6 @@
     )
 }}
 
-
 with cte_1 as 
 (
     select

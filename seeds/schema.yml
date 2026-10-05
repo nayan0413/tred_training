@@ -14,15 +14,11 @@ seeds:
 
           - not_null
 
-          - unique
-
       - name: room_category
 
         tests: 
 
           - not_null
-
-          - unique
 
       - name: room_description
 
@@ -30,15 +26,11 @@ seeds:
 
           - not_null
 
-          - unique
-
       - name: property_segment
 
         tests: 
 
           - not_null
-
-          - unique
 
       - name: standard_room_type
 
@@ -46,23 +38,16 @@ seeds:
 
           - not_null
 
-          - unique
-
       - name: is_active
 
         tests: 
-
           - not_null
-
-          - unique
 
       - name: display_order
 
         tests: 
 
           - not_null
-
-          - unique
 
       - name: reference_code
 

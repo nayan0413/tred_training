@@ -81,6 +81,6 @@ models:
         description: "This represents the reviewer name."
         tests: 
           - not_null
-      - name: reveiw_date
+      - name: review_date
         tests: 
           - not_null
