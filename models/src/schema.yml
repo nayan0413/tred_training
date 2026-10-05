@@ -1,0 +1,54 @@
+models:
+
+  - name: src_hosts
+    description: "{{doc('model1')}}"
+    config:
+      pre_hook:
+        - "{{audit_start()}}"
+
+      post_hook:
+        - "{{audit_end()}}"
+    columns: 
+      - name: host_id
+        description: "This is host_id column"
+
+      - name: host_name
+        description: "This is host_name column"
+
+      - name: is_superhost
+        description: "This is is_superhost column"
+
+      - name: created_at
+      - name: updated_at
+
+
+  - name: src_listings
+    description: "{{doc('model2')}}"
+    columns: 
+      - name: listing_id
+        description: "This is listing_id column"
+
+      - name: listing_url
+        description: "This is listing_url column"
+
+      - name: listing_name
+        description: "This is listing_name column"
+
+      - name: created_at
+      - name: updated_at
+
+
+  - name: src_reviews
+    description: "{{doc('model3')}}"
+    columns: 
+      - name: listing_id
+        description: "This is listing_id column"
+
+      - name: review_date
+        description: "This is review_date column"
+
+      - name: reviewer_name
+        description: "This is reviewer_name column"
+
+      - name: review_text
+      - name: review_sentiment

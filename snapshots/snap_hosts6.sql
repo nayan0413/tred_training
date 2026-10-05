@@ -1,0 +1,33 @@
+{% snapshot snap_hosts6 %}
+
+{{
+    config(
+        target_schema = 'tred_nayan',
+        unique_key='host_id',
+        strategy='check',
+        check_cols=['all'],
+        dbt_valid_to_current="timestamp('9999-12-31 00:00:00 UTC')",
+        hard_deletes='new_record'
+    )
+}}
+
+
+with cte_1 as 
+(
+    select
+    *
+    from
+    {{
+        ref('src_hosts')
+    }}
+)
+select
+host_id,
+host_name,
+is_superhost,
+created_at,
+updated_at
+from 
+cte_1
+
+{% endsnapshot %}

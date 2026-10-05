@@ -1,0 +1,42 @@
+sources:
+
+
+  - name: airbnb
+    database: racko-master-project-505113
+    schema: airbnb_raw
+
+    tables:
+      - name: hosts
+        identifier: raw_hosts
+        columns: 
+          - name: ID
+            description: "This is column ID"
+          - name: name
+            description: "This is columns name"
+        config:
+          loaded_at_field: created_at
+          freshness: 
+            warn_after: {count: 1, period: hour}
+            error_after: {count: 24, period: hour}
+
+
+      - name: reviews
+        identifier: raw_reviews
+        columns: 
+          - name: listing_id
+            description: "This is column listing_id"
+          - name: Date
+            description: "This is columns Date"
+        # config:
+        #   loaded_at_query: |
+        #     select date from {{source('airbnb','reviews')}}
+        #     where listing_id = (select max(listing_id) from {{source('airbnb','reviews')}})
+        #     limit 1
+
+      - name: listings
+        identifier: raw_listings
+        columns: 
+          - name: id
+            description: "This is column id"
+          - name: listing_url
+            description: "This is columns listing_url"
