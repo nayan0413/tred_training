@@ -22,12 +22,12 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"
 
-on-run-start:
-  - "{{sp_nayan()}}"
-  - "{{audit_start()}}"
+# on-run-start:
+#   - "{{sp_nayan()}}"
+#   - "{{audit_start()}}"
 
-on-run-end:
-  = "{{audit_end()}}"
+# on-run-end:
+#   = "{{audit_end()}}"
 
 
 # Configuring models
@@ -39,11 +39,11 @@ on-run-end:
 models:
   training:
     # Config indicated by + and applies to all files under models/example/
-    +pre-hook:
-      - "{{audit_start()}}"
+    # +pre-hook:
+    #   - "{{audit_start()}}"
 
-    +post-hook:
-      - "{{audit_end()}}"
+    # +post-hook:
+    #   - "{{audit_end()}}"
 
     src:
       +materialized: table
@@ -72,8 +72,8 @@ seeds:
         reference_code: FLOAT
 
 
-# vars:
-#   new_date: '2011-01-01'
+vars:
+  new_date: '2011-01-01'
 
 
 snapshots:
